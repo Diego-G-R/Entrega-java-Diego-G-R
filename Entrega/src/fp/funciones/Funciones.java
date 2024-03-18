@@ -3,6 +3,8 @@ package fp.funciones;
 import java.util.ArrayList;
 import java.util.List;
 
+import us.lsi.tools.Preconditions;
+
 public class Funciones {
 	
 	public static Boolean EsPrimo(Integer numero) {
@@ -28,7 +30,7 @@ public class Funciones {
 	}
 	
 	public static Integer Combinatorio(Integer n,Integer k) {
-		if(!(n>=k)) System.err.println("n debe debe ser mayor que k");
+		Preconditions.checkArgument(n>=k, "n debe ser mayor que k");
 		Integer factorialN = Funciones.Factorial(n);
 		Integer factorialK = Funciones.Factorial(k);
 		Integer factorialNK = Funciones.Factorial(n-k);
@@ -37,7 +39,7 @@ public class Funciones {
 	}
 	
 	public static Double NumeroS(Integer n, Integer k) {
-		if(!(n>=k)) System.err.println("n debe debe ser mayor que k");
+		Preconditions.checkArgument(n>=k, "n debe debe ser mayor que k");
 		Double sumatorio= 0.;
 		for (int i = 0; i <= k; i++) {
 			Double x1 = Math.pow((-1), i);

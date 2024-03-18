@@ -53,8 +53,9 @@ public class TestFecha {
 	public static void testParse() {
 		System.out.println("Iniciando el método:testParse");
 
-		System.out.println(Fecha.parse("2023-2-17"));
-		System.out.println(Fecha.parse("2023-02-17"));
+		System.out.println(Fecha.parse("2023-2-10"));
+		System.out.println(Fecha.parse("2023-9-25"));
+		System.out.println(Fecha.parse("2024-3-19"));
 		System.out.println("-".repeat(100));
 	}
 
@@ -79,8 +80,14 @@ public class TestFecha {
 	public static void testdiferenciaEnDias() {
 		System.out.println("Iniciando el método:testdiferenciaEnDias");
 
-		System.out.println(Fecha.of(2020, 7, 23).diferenciaEnDias(Fecha.of(2003, 3, 17)));
-		System.out.println(LocalDate.of(2020, 7, 23).until(LocalDate.of(2003, 3, 17),ChronoUnit.DAYS ));
+		System.out.println(Fecha.of(2003, 3, 17).diferenciaEnDias(Fecha.of(2020, 7, 23)));
+		System.out.println(LocalDate.of(2003, 3, 17).until(LocalDate.of(2020, 7, 23),ChronoUnit.DAYS ));
+		System.out.println(".".repeat(100));
+		System.out.println(Fecha.of(2020, 12, 23).diferenciaEnDias(Fecha.of(2003, 3, 17)));
+		System.out.println(LocalDate.of(2020, 12, 23).until(LocalDate.of(2003, 3, 17),ChronoUnit.DAYS ));
+		System.out.println(".".repeat(100));
+		System.out.println(Fecha.of(2020, 7, 23).diferenciaEnDias(Fecha.of(2020, 11, 17)));
+		System.out.println(LocalDate.of(2020, 7, 23).until(LocalDate.of(2020, 11, 17),ChronoUnit.DAYS ));
 
 		System.out.println("-".repeat(100));
 	}

@@ -69,37 +69,37 @@ public record Fecha(Integer año,Integer mes,Integer dia) {
     }
     
     public Fecha sumarDias(Integer dias) {
-        Integer newDay = this.dia + dias;
-        Integer newMonth = this.mes;
-        Integer newYear = this.año;
+        Integer newDia = this.dia + dias;
+        Integer newMes = this.mes;
+        Integer newAño = this.año;
 
-        while (newDay > diasEnMes(newYear, newMonth)) {
-            newDay -= diasEnMes(newYear, newMonth);
-            newMonth++;
-            if (newMonth > 12) {
-                newMonth = 1;
-                newYear++;
+        while (newDia > diasEnMes(newAño, newMes)) {
+            newDia -= diasEnMes(newAño, newMes);
+            newMes++;
+            if (newMes > 12) {
+                newMes = 1;
+                newAño++;
             }
         }
 
-        return Fecha.of(newYear, newMonth, newDay);
+        return Fecha.of(newAño, newMes, newDia);
     }
 
     public Fecha restarDias(Integer dias) {
-        Integer newDay = this.dia - dias;
-        Integer newMonth = this.mes;
-        Integer newYear = this.año;
+        Integer newDia = this.dia - dias;
+        Integer newMes = this.mes;
+        Integer newAño = this.año;
 
-        while (newDay <= 0) {
-            newMonth--;
-            if (newMonth < 1) {
-                newMonth = 12;
-                newYear--;
+        while (newDia <= 0) {
+            newMes--;
+            if (newMes < 1) {
+                newMes = 12;
+                newAño--;
             }
-            newDay += diasEnMes(newYear, newMonth);
+            newDia += diasEnMes(newAño, newMes);
         }
 
-        return Fecha.of(newYear, newMonth, newDay);
+        return Fecha.of(newAño, newMes, newDia);
     }
     
     public Integer diferenciaEnDias(Fecha otraFecha) {
@@ -108,6 +108,7 @@ public record Fecha(Integer año,Integer mes,Integer dia) {
             acumDias += diasEnMes(this.año, i);
         }
         acumDias += this.dia;
+        
 
         Integer totalDiasOtra = 0;
         for (int i = 1; i < otraFecha.mes; i++) {
@@ -119,8 +120,11 @@ public record Fecha(Integer año,Integer mes,Integer dia) {
         for (int i = Math.min(this.año, otraFecha.año); i < Math.max(this.año, otraFecha.año); i++) {
             diasPorAño += esAñoBisiesto(i) ? 366 : 365;
         }
+        
+        Integer diferenciaDiasSinAño= this.año>otraFecha.año ? acumDias-totalDiasOtra : totalDiasOtra-acumDias;
+        
 
-        return Math.abs(acumDias - totalDiasOtra + diasPorAño);
+        return Math.abs(diferenciaDiasSinAño + diasPorAño);
     }
     
     

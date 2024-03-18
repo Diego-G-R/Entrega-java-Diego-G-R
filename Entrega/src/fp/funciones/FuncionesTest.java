@@ -16,8 +16,11 @@ public class FuncionesTest {
 		System.out.println("Iniciando el método:testCombinatorio");
 		for (int n = 0; n < 3; n++) {
 			for (int k = 0; k < 3; k++) {
-				System.out.println(n+","+k+":"+ Funciones.Combinatorio(n, k));
-				
+				try {
+					System.out.println(n+","+k+":"+ Funciones.Combinatorio(n, k));
+				} catch (Exception e) {
+					System.err.println("n debe ser mayor que k");
+				}				
 			}		
 		}
 		System.out.println("-".repeat(100));
@@ -25,8 +28,12 @@ public class FuncionesTest {
 	
 	public static void testNumeroS() {
 		System.out.println("Iniciando el método:testNumeroS");
-		
-		System.out.println("4,5:"+Funciones.NumeroS(4, 5));
+
+		try {
+			System.out.println("4,5:"+Funciones.NumeroS(4, 5));
+		} catch (Exception e) {
+			System.err.println("n debe ser mayor que k");
+		}
 		System.out.println("6,3:"+Funciones.NumeroS(6, 3));
 
 		System.out.println("-".repeat(100));
@@ -34,8 +41,10 @@ public class FuncionesTest {
 
 	public static void testDiferenciasLista() {
 		System.out.println("Iniciando el método:testDiferenciasLista");
-
-		System.out.println(Funciones.DiferenciasLista(List.of(2,3,4,5,6,56,57,7)));
+		
+		List<Integer> lista= List.of(2,3,4,5,6,56,57,7);
+		System.out.println(lista);
+		System.out.println(Funciones.DiferenciasLista(lista));
 
 		System.out.println("-".repeat(100));
 	}
@@ -43,7 +52,7 @@ public class FuncionesTest {
 	public static void testCadenaMasLarga() {
 		System.out.println("Iniciando el método:testCadenaMasLarga");
 
-		System.out.println(Funciones.CadenaMasLarga(List.of("Manzana", "Banana", "Naranja", "Fresa", "Mango")));
+		System.out.println(Funciones.CadenaMasLarga(List.of("Manzana", "Banana", "Naranjas", "Pera", "Mango")));
 		System.out.println(Funciones.CadenaMasLarga(List.of("Carlos", "María", "Juan", "Ana", "Pedro")));
 		System.out.println(Funciones.CadenaMasLarga(List.of("Perro", "Gato", "Elefante", "León", "Tigre")));
 
