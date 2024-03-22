@@ -92,6 +92,17 @@ public class TestFecha {
 		System.out.println("-".repeat(100));
 	}
 	
+//	AQUI EMPIEZA LA DEFENSA
+	
+	public static void testRestarDiasFechaDada() {
+		System.out.println("Iniciando el método:testRestarDiasFechaDada");
+		
+		System.out.println(Fecha.restarDiasFechaDada(Fecha.of(2024, 03, 22), 100));
+		System.out.println(LocalDate.of(2024, 03, 22).minus(100, ChronoUnit.DAYS));
+
+		System.out.println("-".repeat(100));
+	}
+	
 	public static void main(String[] args) {
 		TestFecha.testnombreMes();
 		TestFecha.testdiaSemana();
@@ -101,6 +112,10 @@ public class TestFecha {
 		TestFecha.testsumarDias();
 		TestFecha.testrestarDias();
 		TestFecha.testdiferenciaEnDias();
+		
+		TestFecha.testRestarDiasFechaDada();
+		
+		
 	}
 
 	

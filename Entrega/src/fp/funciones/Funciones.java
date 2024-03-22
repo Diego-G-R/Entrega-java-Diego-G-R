@@ -70,6 +70,40 @@ public class Funciones {
 		}
 		return cadena;
 	}
+
+//	AQUÍ EMPIEZA LA DEFENSA
+	
+//	A
+	public static Integer funcionP2(Integer n, Integer k) {
+		Integer productorio = 1;
+		for (int i = 0; i < k-2; i++) {
+			Preconditions.checkArgument(i<k+1, "i debe ser menor que k+1");
+			productorio=productorio*(n-k);
+		}
+		return productorio;
+		}
+	
+//	B
+	public static Integer funcionC2(Integer n, Integer k) {
+		return Funciones.Combinatorio(n, k+1);	
+	}
+	
+//	C
+	public static Double funcionS2(Integer n, Integer k) {
+		Double sumatorio =0.;
+		for (int i = 0; i < k; i++) {
+			Double x1= Math.pow(-1, i);
+			Double x2= Funciones.Combinatorio(k, i).doubleValue();
+			Double x3= Math.pow(k-i, n);
+			sumatorio =sumatorio + x1*x2*x3;
+		}
+		Double x4= Funciones.Factorial(k).doubleValue()/Funciones.Factorial(k+2).doubleValue();
+		return  x4*sumatorio;
+		
+	}
+	
+	
+		
 	
 }
 

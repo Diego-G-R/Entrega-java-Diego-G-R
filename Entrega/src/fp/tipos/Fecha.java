@@ -33,7 +33,7 @@ public record Fecha(Integer año,Integer mes,Integer dia) {
 
 	public static String nombreMes(Integer mes) {
 		Fecha.comprobacionMesEnRango(mes);
-		List<String> AuxMeses= List.of("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Dieciembre");
+		List<String> AuxMeses= List.of("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 		return AuxMeses.get(mes-1);
 	}
 	
@@ -152,6 +152,13 @@ public record Fecha(Integer año,Integer mes,Integer dia) {
 	@Override
 	public String toString() {
 		return String.format("%s, %d de %s de %d", Fecha.diaSemana(this.año, this.mes, this.dia),this.dia,Fecha.nombreMes(this.mes),this.año);
+	}
+
+//	AQUI EMPIEZA LA DEFENSA
+//	D
+	public static Fecha restarDiasFechaDada(Fecha fecha, int numDias) {
+		Preconditions.checkArgument(numDias>0 && numDias<1000, "numDias debe ser positivo y tener maximo 3 digitos");
+		return fecha.restarDias(numDias);
 	}
 }
 

@@ -59,11 +59,44 @@ public class FuncionesTest {
 		System.out.println("-".repeat(100));
 	}
 	
+//	AQUI EMPIEZA LA DEFENSA
+	
+	
+	public static void testFuncionP2() {
+		System.out.println("Iniciando el método:testFuncionP2");
+
+		System.out.println(Funciones.funcionP2(10, 4));
+
+		System.out.println("-".repeat(100));
+	}
+	
+//	B
+	public static void testFuncionC2() {
+		System.out.println("Iniciando el método:testFuncionC2");
+
+		System.out.println(Funciones.funcionC2(9, 7));
+
+		System.out.println("-".repeat(100));
+	}
+	
+//	C
+	public static void testFuncionS2() {
+		System.out.println("Iniciando el método:testFuncionS2");
+
+		System.out.println(Funciones.funcionS2(10, 4));
+
+		System.out.println("-".repeat(100));
+	}
+	
 	public static void main(String[] args) {
 		FuncionesTest.testEsPrimo();
 		FuncionesTest.testCombinatorio();
 		FuncionesTest.testNumeroS();
 		FuncionesTest.testDiferenciasLista();
 		FuncionesTest.testCadenaMasLarga();
+		
+		FuncionesTest.testFuncionP2();
+		FuncionesTest.testFuncionC2();
+		FuncionesTest.testFuncionS2();
 	}
 }
